@@ -47,4 +47,9 @@ public class RoomController {
   public HashMap<Integer, Room> getAllRooms() {
     return roomService.getAllRooms();
   }
+
+  @GetMapping("/room/{roomNumber}/songs/clearVotedSongs")
+  public boolean clearSongsFromVotedList(@PathVariable("roomNumber") String roomNumber) {
+    return roomService.clearSongsFromVotedList(roomNumber);
+  }
 }

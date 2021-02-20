@@ -64,4 +64,12 @@ public class RoomService {
   public HashMap<Integer, Room> getAllRooms() {
     return this.roomMap;
   }
+
+  public boolean clearSongsFromVotedList(String roomNumber) {
+    if(!roomMap.containsKey(Integer.parseInt(roomNumber)))
+      return false;
+
+    roomMap.get(Integer.parseInt(roomNumber)).getCurrentTopVotedSongs().clear();
+    return true;
+  }
 }

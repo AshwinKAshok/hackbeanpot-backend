@@ -1,14 +1,18 @@
 package com.example.hackbeanpotbackend.models;
 
+import java.util.ArrayList;
+
 public class Room {
   private String name;
   private String admin;
-  private String room_number;
+  private String roomNumber;
+  private ArrayList<Songs> songsList;
 
-  public Room(String name, String admin, String room_number) {
+  public Room(String name, String admin, String roomNumber, ArrayList<Songs> songsList) {
     this.name = name;
     this.admin = admin;
-    this.room_number = room_number;
+    this.roomNumber = roomNumber;
+    this.songsList = songsList;
   }
 
   public String getName() {
@@ -27,11 +31,19 @@ public class Room {
     this.admin = admin;
   }
 
-  public String getRoom_number() {
-    return room_number;
+  public String getRoomNumber() {
+    return roomNumber;
   }
 
-  public void setRoom_number(String room_number) {
-    this.room_number = room_number;
+  public void setRoomNumber(String roomNumber) {
+    this.roomNumber = roomNumber;
+  }
+
+  public ArrayList<Songs> getSongsList() {
+    return songsList;
+  }
+
+  public void setSongsList(ArrayList<Songs> songsList) {
+    this.songsList = songsList;
   }
 }

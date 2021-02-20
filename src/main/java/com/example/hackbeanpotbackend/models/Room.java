@@ -6,13 +6,15 @@ public class Room {
   private String name;
   private String admin;
   private String roomNumber;
-  private ArrayList<Songs> songsList;
+  private ArrayList<Song> songList;
+  private ArrayList<Song> currentTopVotedSongs;
 
-  public Room(String name, String admin, String roomNumber, ArrayList<Songs> songsList) {
+  public Room(String name, String admin, String roomNumber, ArrayList<Song> songList, ArrayList<Song> currentTopVotedSongs) {
     this.name = name;
     this.admin = admin;
     this.roomNumber = roomNumber;
-    this.songsList = songsList;
+    this.songList = songList;
+    this.currentTopVotedSongs = currentTopVotedSongs;
   }
 
   public String getName() {
@@ -39,11 +41,19 @@ public class Room {
     this.roomNumber = roomNumber;
   }
 
-  public ArrayList<Songs> getSongsList() {
-    return songsList;
+  public ArrayList<Song> getSongList() {
+    return songList;
   }
 
-  public void setSongsList(ArrayList<Songs> songsList) {
-    this.songsList = songsList;
+  public void setSongList(ArrayList<Song> songList) {
+    this.songList = songList;
+  }
+
+  public ArrayList<Song> getCurrentTopVotedSongs() {
+    return currentTopVotedSongs;
+  }
+
+  public void setCurrentTopVotedSongs(ArrayList<Song> currentTopVotedSongs) {
+    this.currentTopVotedSongs = currentTopVotedSongs;
   }
 }

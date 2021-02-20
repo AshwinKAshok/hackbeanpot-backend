@@ -1,10 +1,10 @@
 package com.example.hackbeanpotbackend.models;
 
-public class Songs {
+public class Song {
   private String songName;;
   private String songUrl;
 
-  public Songs(String songName, String songUrl) {
+  public Song(String songName, String songUrl) {
     this.songName = songName;
     this.songUrl = songUrl;
   }

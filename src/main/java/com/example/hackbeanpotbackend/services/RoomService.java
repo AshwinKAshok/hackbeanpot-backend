@@ -13,6 +13,12 @@ import java.util.Random;
 public class RoomService {
   HashMap<Integer, Room> roomMap = new HashMap<>();
 
+  public Room getRoomByRoomNumber(String roomNumber) {
+    if(!roomMap.containsKey(Integer.parseInt(roomNumber)))
+      return null;
+    else
+      return roomMap.get(Integer.parseInt(roomNumber));
+  }
 
   public Room AddNewRoom(String roomName, String adminName) {
     Random rand = new Random(); //instance of random class

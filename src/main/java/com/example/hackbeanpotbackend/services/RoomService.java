@@ -60,4 +60,8 @@ public class RoomService {
   public ArrayList<Song> getRoomCurrentTopSongs(int roomNumber) {
     return roomMap.get(roomNumber).getCurrentTopVotedSongs();
   }
+
+  public HashMap<Integer, Room> getAllRooms() {
+    return this.roomMap;
+  }
 }

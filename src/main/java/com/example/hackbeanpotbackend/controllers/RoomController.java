@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -40,5 +41,10 @@ public class RoomController {
   @GetMapping("/room/{roomNumber}")
   public Room getRoomData(@PathVariable("roomNumber") String roomNumber) {
     return roomService.getRoomByRoomNumber(roomNumber);
+  }
+
+  @GetMapping("/room/all")
+  public HashMap<Integer, Room> getAllRooms() {
+    return roomService.getAllRooms();
   }
 }

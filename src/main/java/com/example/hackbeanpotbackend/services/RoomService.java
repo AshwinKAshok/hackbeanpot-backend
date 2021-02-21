@@ -72,4 +72,27 @@ public class RoomService {
     roomMap.get(Integer.parseInt(roomNumber)).getCurrentTopVotedSongs().clear();
     return true;
   }
+
+  public ArrayList<Song> createVoteOfRandomSongs(String roomNumber) {
+    ArrayList<Song> listOfSongs = roomMap.get(Integer.parseInt(roomNumber)).getSongList();
+    Random rand = new Random(); //instance of random class
+    int upperbound = listOfSongs.size()-1;
+    //generate random values from 0-24
+    ArrayList<Integer> random_index_till_now = new ArrayList<>();
+
+    ArrayList<Song> newVotedSongList = new ArrayList<>();
+
+
+    for(int i=0; i<3; i++) {
+      int random_indx = rand.nextInt(upperbound);
+      while(random_index_till_now.contains(random_indx))
+        random_indx = rand.nextInt(upperbound);
+
+      random_index_till_now.add(random_indx);
+      newVotedSongList.add(listOfSongs.get(random_indx));
+    }
+
+    roomMap.get(Integer.parseInt(roomNumber)).setCurrentTopVotedSongs(newVotedSongList);
+    return newVotedSongList;
+  }
 }

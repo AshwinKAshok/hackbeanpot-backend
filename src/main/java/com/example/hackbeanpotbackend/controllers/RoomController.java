@@ -52,4 +52,10 @@ public class RoomController {
   public boolean clearSongsFromVotedList(@PathVariable("roomNumber") String roomNumber) {
     return roomService.clearSongsFromVotedList(roomNumber);
   }
+
+
+  @GetMapping("/room/{roomNumber}/createvote")
+  public ArrayList<Song> createVoteOfRandomSongs(@PathVariable("roomNumber") String roomNumber) {
+        return roomService.createVoteOfRandomSongs(roomNumber);
+  }
 }

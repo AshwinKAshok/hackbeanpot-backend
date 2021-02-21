@@ -31,7 +31,7 @@ public class RoomService {
       random_room_number = rand.nextInt(upperbound);
     }
 
-    Room newRoom = new Room(roomName, adminName, String.valueOf(random_room_number), new ArrayList<Song>(), new ArrayList<Song>());
+    Room newRoom = new Room(roomName, adminName, String.valueOf(random_room_number), new ArrayList<Song>(), new ArrayList<Song>(), new ArrayList<Integer>());
     roomMap.put(random_room_number, newRoom);
 
     return newRoom;
@@ -80,8 +80,8 @@ public class RoomService {
     //generate random values from 0-24
     ArrayList<Integer> random_index_till_now = new ArrayList<>();
 
+    ArrayList<Integer> newVotesArray = new ArrayList<>();
     ArrayList<Song> newVotedSongList = new ArrayList<>();
-
 
     for(int i=0; i<3; i++) {
       int random_indx = rand.nextInt(upperbound);
@@ -90,9 +90,18 @@ public class RoomService {
 
       random_index_till_now.add(random_indx);
       newVotedSongList.add(listOfSongs.get(random_indx));
+      newVotesArray.add(0);
     }
 
     roomMap.get(Integer.parseInt(roomNumber)).setCurrentTopVotedSongs(newVotedSongList);
+    roomMap.get(Integer.parseInt(roomNumber)).setVotesForThreeSongs(newVotesArray);
     return newVotedSongList;
+  }
+
+  public boolean updateVote(String roomNumber, String voteIndex) {
+    int currentVoteValue = roomMap.get(Integer.parseInt(roomNumber)).getVotesForThreeSongs().get(Integer.parseInt(voteIndex));
+    roomMap.get(Integer.parseInt(roomNumber)).getVotesForThreeSongs().set(Integer.parseInt(voteIndex), currentVoteValue + 1);
+
+    return true;
   }
 }

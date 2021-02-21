@@ -58,4 +58,9 @@ public class RoomController {
   public ArrayList<Song> createVoteOfRandomSongs(@PathVariable("roomNumber") String roomNumber) {
         return roomService.createVoteOfRandomSongs(roomNumber);
   }
+
+  @PostMapping("/room/{roomNumber}/vote/{voteIndex}")
+  public boolean updateVote(@PathVariable("roomNumber") String roomNumber, @PathVariable("voteIndex") String voteIndex) {
+    return roomService.updateVote(roomNumber, voteIndex);
+  }
 }

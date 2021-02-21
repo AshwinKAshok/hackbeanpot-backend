@@ -28,14 +28,14 @@ public class RoomController {
     return roomService.AddNewRoom(roomName, adminName);
   }
 
-  @PostMapping("/song/list/name/{songName}/url/{songUrl}/room/{roomNumber}")
-  public boolean addSongToRoom(@PathVariable("songName")String songName, @PathVariable("songUrl") String songUrl, @PathVariable("roomNumber") String roomNumber) {
-    return roomService.AddSongToRoom(Integer.parseInt(roomNumber), new Song(songName, songUrl));
+  @PostMapping("/song/list/room/{roomNumber}")
+  public boolean addSongToRoom(@PathVariable("roomNumber") String roomNumber, @RequestBody Song song) {
+    return roomService.AddSongToRoom(Integer.parseInt(roomNumber), song);
   }
 
-  @PostMapping("/song/votedlist/name/{songName}/url/{songUrl}/room/{roomNumber}")
-  public boolean addSongToTopVotedList(@PathVariable("songName")String songName, @PathVariable("songUrl") String songUrl, @PathVariable("roomNumber") String roomNumber) {
-    return roomService.AddSongToCurrentTopVotedList(Integer.parseInt(roomNumber), new Song(songName, songUrl));
+  @PostMapping("/song/votedlist/room/{roomNumber}")
+  public boolean addSongToTopVotedList(@PathVariable("roomNumber") String roomNumber, @RequestBody Song song) {
+    return roomService.AddSongToCurrentTopVotedList(Integer.parseInt(roomNumber), song);
   }
 
   @GetMapping("/room/{roomNumber}")
